@@ -48,7 +48,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Config\BraisedPolkBall.json" />
+    <None Include="Config\BraisedPolkBall.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\P04.Helper\P04.Helper.csproj">
+      <Project>{cd6338b4-b0d4-4c06-bc1e-683ca2b4c3da}</Project>
+      <Name>P04.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P04.Model\P04.Model.csproj">
+      <Project>{697ffdeb-fd42-4cce-84dd-fdc3ef231620}</Project>
+      <Name>P04.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

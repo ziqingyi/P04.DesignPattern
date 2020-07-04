@@ -16,7 +16,7 @@ namespace P04.Helper
         private static readonly object _infoLock = new object();
 
         //write to Console
-        public static void WirteInfoLog(string message, ConsoleColor c = ConsoleColor.White)
+        public static void WriteInfoLog(string message, ConsoleColor c = ConsoleColor.White)
         {
             lock (_writeLock)
             {
@@ -34,7 +34,7 @@ namespace P04.Helper
             try
             {
                 string fileName = DateTime.Now.ToString("yyyy-MM-dd");
-                string filePath = AppDomain.CurrentDomain.BaseDirectory + "/logInfo";
+                string filePath = AppDomain.CurrentDomain.BaseDirectory + "logInfo";
                 if (!Directory.Exists(filePath))
                 {
                     Directory.CreateDirectory(filePath);
