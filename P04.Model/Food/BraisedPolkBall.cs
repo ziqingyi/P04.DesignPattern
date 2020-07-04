@@ -7,7 +7,7 @@ using P04.Helper;
 
 namespace P04.Model.Food
 {
-    class BraisedPolkBall:AbstractFood
+    public class BraisedPolkBall:AbstractFood
     {
         public BraisedPolkBall() : base("Config/BraisedPolkBall.json")
         {
@@ -17,7 +17,7 @@ namespace P04.Model.Food
         public override void Cook()
         {
             String des = string.Format("Now chief is cooking, your dish is : {0}", this.BaseFood.FoodName);
-            LogHelper.WirteInfoLog(des, this.BaseFood.MessageColor);
+            LogHelper.WriteInfoLog(des, this.BaseFood.MessageColor);
         }
     }
 }

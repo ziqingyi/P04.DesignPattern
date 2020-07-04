@@ -24,9 +24,27 @@ namespace P04.Model
 
         public abstract void Cook();
 
+        #region output methods
 
+        public void ShowBasicInfo()
+        {
+            LogHelper.WriteInfoLog(string.Format("Food Id is: {0}", this.BaseFood.FoodId), this.BaseFood.MessageColor);
+            LogHelper.WriteInfoLog(string.Format("Food Name is : {0}", this.BaseFood.FoodName), this.BaseFood.MessageColor);
+            LogHelper.WriteInfoLog(string.Format("Food Description: {0}", this.BaseFood.FoodDescription), this.BaseFood.MessageColor);
+        }
 
+        public void ShowCookMethod()
+        {
+            LogHelper.WriteInfoLog(string.Format("Cooking Method: {0}", this.BaseFood.CookMethod), this.BaseFood.MessageColor);
+        }
 
+        #endregion
+
+        public void Taste()
+        {
+            string CustomerName = string.IsNullOrEmpty(this.BaseFood.CustomerName) ? "" : this.BaseFood.CustomerName;
+            LogHelper.WriteInfoLog(string.Format("Customer: {0} is tasting {1}",CustomerName, this.BaseFood.FoodName ));
+        }
 
     }
 }

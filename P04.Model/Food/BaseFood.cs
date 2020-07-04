@@ -17,6 +17,8 @@ namespace P04.Model
         public decimal Price { get; set; }
         public ConsoleColor MessageColor { get; set; }
 
+        public string CustomerName { get; set; }
+
         #endregion
 
     }
