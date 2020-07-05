@@ -24,9 +24,16 @@ namespace P04.DesignPattern
             braisedPolkBall.ShowCookMethod();
             braisedPolkBall.Taste();
 
+            AbstractFood crabPackage = new CrabPackage();
+            crabPackage.ShowBasicInfo();
+            crabPackage.ShowCookMethod();
+            crabPackage.Taste();
 
-
-
+            AbstractFood squirrelFish = new SquirrelFish();
+            squirrelFish.ShowBasicInfo();
+            squirrelFish.ShowCookMethod();
+            squirrelFish.Taste();
+            Console.WriteLine("********************* End Of normal Pattern*******************************");
             #endregion
 
 
