@@ -43,7 +43,7 @@ namespace P04.Model
         public void Taste()
         {
             string CustomerName = string.IsNullOrEmpty(this.BaseFood.CustomerName) ? "" : this.BaseFood.CustomerName;
-            LogHelper.WriteInfoLog(string.Format("Customer: {0} is tasting {1}",CustomerName, this.BaseFood.FoodName ));
+            LogHelper.WriteInfoLog(string.Format("Customer: {0} is tasting {1}",CustomerName, this.BaseFood.FoodName ), this.BaseFood.MessageColor);
         }
 
     }
