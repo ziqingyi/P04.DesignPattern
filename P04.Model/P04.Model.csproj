@@ -49,6 +49,10 @@
     <Compile Include="Food\AbstractFood.cs" />
     <Compile Include="Food\BaseFood.cs" />
     <Compile Include="Food\BraisedPolkBall.cs" />
+    <Compile Include="Food\CrabPackage.cs" />
+    <Compile Include="Food\SquirrelFish.cs" />
+    <Compile Include="Food\ThreeNestedDuck.cs" />
+    <Compile Include="Food\VegetarianEel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
