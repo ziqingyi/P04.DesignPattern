@@ -17,7 +17,7 @@ namespace P04.DesignPattern
 
         static void Main(string[] args)
         {
-            #region normal pattern of program
+            #region normal pattern of program 
             Console.WriteLine("*********************1 normal pattern of program****************");
             AbstractFood braisedPolkBall = new BraisedPolkBall();
             braisedPolkBall.ShowBasicInfo();
