@@ -73,6 +73,10 @@
       <Project>{697ffdeb-fd42-4cce-84dd-fdc3ef231620}</Project>
       <Name>P04.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\P04.SimpleFactory\P04.SimpleFactory.csproj">
+      <Project>{54742A22-9CFB-4417-B1C0-ADC662C32FDF}</Project>
+      <Name>P04.SimpleFactory</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
