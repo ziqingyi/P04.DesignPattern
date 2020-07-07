@@ -52,9 +52,15 @@ namespace SimpleFactory
         }
 
 
+        // create by string dll information
 
-
-
+        public static AbstractFood CreateInstanceByReflectionInfo(string typeDll)
+        {
+            Assembly assembly = Assembly.Load(typeDll.Split(',')[1]);
+            Type type = assembly.GetType(typeDll.Split(',')[0]);
+            AbstractFood result = (AbstractFood)Activator.CreateInstance(type);
+            return result;
+        }
 
 
 
