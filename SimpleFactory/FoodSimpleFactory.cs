@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Reflection;
 using System.Text;
 using P04.Model;
 using P04.Model.Enum;
@@ -40,7 +41,15 @@ namespace SimpleFactory
             return CreateInstanceByNormal(foodType);
         }
 
-
+        // create by config files and reflections
+        private static readonly string AbstractFoodTypeReflection = ConfigurationManager.AppSettings["AbstractFoodTypeReflection"];
+        public static AbstractFood CreateInstanceByReflection()
+        {
+            Assembly assembly = Assembly.Load(AbstractFoodTypeReflection.Split(',')[1]);
+            Type type = assembly.GetType(AbstractFoodTypeReflection.Split(',')[0]);
+            AbstractFood result = (AbstractFood) Activator.CreateInstance(type);
+            return result;
+        }
 
 
 
