@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using P04.Model;
 using P04.Model.Enum;
 using P04.Model.Food;
 
-namespace SimpleFactory
+namespace P04.SimpleFactory
 {
     public class FoodSimpleFactory
     {
@@ -27,7 +29,7 @@ namespace SimpleFactory
                     return new ThreeNestedDuck();
                 default:
                     throw new Exception("Sorry, no such dish...");
-                //return null;
+                    //return null;
             }
 
         }
@@ -47,13 +49,11 @@ namespace SimpleFactory
         {
             Assembly assembly = Assembly.Load(AbstractFoodTypeReflection.Split(',')[1]);
             Type type = assembly.GetType(AbstractFoodTypeReflection.Split(',')[0]);
-            AbstractFood result = (AbstractFood) Activator.CreateInstance(type);
+            AbstractFood result = (AbstractFood)Activator.CreateInstance(type);
             return result;
         }
 
-
         // create by string dll information
-
         public static AbstractFood CreateInstanceByReflectionInfo(string typeDll)
         {
             Assembly assembly = Assembly.Load(typeDll.Split(',')[1]);
@@ -61,12 +61,6 @@ namespace SimpleFactory
             AbstractFood result = (AbstractFood)Activator.CreateInstance(type);
             return result;
         }
-
-
-
-
-
-
 
 
 
