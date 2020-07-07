@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
 using P04.Model;
 using P04.Model.Enum;
@@ -29,6 +30,27 @@ namespace SimpleFactory
             }
 
         }
+
+        // create food obj by reading from config file. 
+        public static string AbstractFoodType = ConfigurationManager.AppSettings["AbstractFoodType"];
+        public static AbstractFood CreateInstanceByConfig()
+        {
+            FoodTypeEnum foodType = (FoodTypeEnum)Enum.Parse(typeof(FoodTypeEnum), AbstractFoodType);
+
+            return CreateInstanceByNormal(foodType);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
