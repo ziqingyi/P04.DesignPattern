@@ -36,7 +36,7 @@ namespace P04.SimpleFactory
 
         }
 
-        // create food obj by reading from config file. 
+        // create food obj by reading from config file.then convert to Enum, then use simple way to create instance 
         public static string AbstractFoodType = ConfigurationManager.AppSettings["AbstractFoodType"];
         public static AbstractFood CreateInstanceByConfig()
         {
@@ -45,7 +45,7 @@ namespace P04.SimpleFactory
             return CreateInstanceByNormal(foodType);
         }
 
-        // create by config files and reflections
+        // read config files (get DLLand class information) and create by reflections
         private static readonly string AbstractFoodTypeReflection = ConfigurationManager.AppSettings["AbstractFoodTypeReflection"];
         public static AbstractFood CreateInstanceByReflection()
         {
@@ -55,7 +55,7 @@ namespace P04.SimpleFactory
             return result;
         }
 
-        // create by string dll information
+        // create by receiving string dll information, then create by reflection
         public static AbstractFood CreateInstanceByReflectionInfo(string typeDll)
         {
             Assembly assembly = Assembly.Load(typeDll.Split(',')[1]);
