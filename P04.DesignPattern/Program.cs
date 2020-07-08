@@ -41,18 +41,25 @@ namespace P04.DesignPattern
             }
             {
                 #region simple factory
-                Console.WriteLine("*********************2 simple factory****************");
+                Console.WriteLine("*********************2 simple factory, create instance with Enum****************");
+                Console.WriteLine("************create instance by new Class() ");
                 AbstractFood braisedPolkBall = FoodSimpleFactory.CreateInstanceByNormal(FoodTypeEnum.BraisedPolkBall);
-                if (braisedPolkBall == null)
-                {
+                
+                braisedPolkBall.ShowBasicInfo();
+                braisedPolkBall.ShowCookMethod();
+                braisedPolkBall.Taste();
 
-                }
-                else
-                {
-                    braisedPolkBall.ShowBasicInfo();
-                    braisedPolkBall.ShowCookMethod();
-                    braisedPolkBall.Taste();
-                }
+                Console.WriteLine("************create instance from Config, then to Enum ");
+                AbstractFood crabPackage = FoodSimpleFactory.CreateInstanceByConfig();
+                crabPackage.ShowBasicInfo();
+                crabPackage.ShowBasicInfo();
+                crabPackage.Taste();
+
+                Console.WriteLine("************create instance from Config, then to Enum ");
+                AbstractFood squirrelFish = FoodSimpleFactory.CreateInstanceByReflection();
+                squirrelFish.ShowBasicInfo();
+                squirrelFish.ShowCookMethod();
+                squirrelFish.Taste();
 
 
 

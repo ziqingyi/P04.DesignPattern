@@ -30,6 +30,8 @@ namespace P04.SimpleFactory
                 default:
                     throw new Exception("Sorry, no such dish...");
                     //return null;
+                    //it's better to throw exception rather than handle null value
+                    //because it's better to show error where it happens
             }
 
         }
