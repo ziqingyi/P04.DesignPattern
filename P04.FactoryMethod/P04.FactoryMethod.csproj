@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6325B9F1-99AB-4ECB-AAE0-8620389F3B10}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>P04.DesignPattern</RootNamespace>
-    <AssemblyName>P04.DesignPattern</AssemblyName>
+    <ProjectGuid>{88B923B7-ABCD-4649-B928-81307042AD6E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>P04.FactoryMethod</RootNamespace>
+    <AssemblyName>P04.FactoryMethod</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,43 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="BaseFactory.cs" />
+    <Compile Include="BraisedPolkBallFactory.cs" />
+    <Compile Include="CrabPackageFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SquirrelFishFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="Config\BraisedPolkBall.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Config\CrabPackage.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Config\SquirrelFish.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Config\ThreeNestedDuck.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Config\VegetarianEel.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\P04.FactoryMethod\P04.FactoryMethod.csproj">
-      <Project>{88B923B7-ABCD-4649-B928-81307042AD6E}</Project>
-      <Name>P04.FactoryMethod</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\P04.Helper\P04.Helper.csproj">
-      <Project>{cd6338b4-b0d4-4c06-bc1e-683ca2b4c3da}</Project>
-      <Name>P04.Helper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\P04.Model\P04.Model.csproj">
       <Project>{697ffdeb-fd42-4cce-84dd-fdc3ef231620}</Project>
       <Name>P04.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\P04.SimpleFactory\P04.SimpleFactory.csproj">
-      <Project>{54742A22-9CFB-4417-B1C0-ADC662C32FDF}</Project>
-      <Name>P04.SimpleFactory</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
