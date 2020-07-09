@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using P04.FactoryMethod;
 using P04.Model;
 using P04.Model.Enum;
 using P04.Model.Food;
@@ -61,12 +62,30 @@ namespace P04.DesignPattern
                 squirrelFish.ShowCookMethod();
                 squirrelFish.Taste();
 
-
-
                 Console.WriteLine("********************* End Of simple factory*******************************");
                 #endregion
+            }
+            {
+                #region Factory Method
+
+                Console.WriteLine("**********************3 Factory Method*************************************");
+                BaseFactory braisedPolkBallFactory = new BraisedPolkBallFactory();
+                AbstractFood braisedPolkBall =  braisedPolkBallFactory.CreateInstance();
+                braisedPolkBall.ShowBasicInfo();
+                braisedPolkBall.ShowCookMethod();
+                braisedPolkBall.Taste();
+
+                Console.WriteLine("**********************End of Factory Method*************************************");
+
+                #endregion
+
+
 
             }
+
+
+
+
         }
     }
 }
