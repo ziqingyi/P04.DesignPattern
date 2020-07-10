@@ -20,7 +20,7 @@ namespace P04.Helper
         {
             lock (_writeLock)
             {
-                Thread.Sleep(500);
+                Thread.Sleep(100);
                 Console.ForegroundColor = c;
                 Console.WriteLine(message);
                 Console.ForegroundColor = ConsoleColor.White;

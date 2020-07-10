@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{697FFDEB-FD42-4CCE-84DD-FDC3EF231620}</ProjectGuid>
+    <ProjectGuid>{925191AA-28B3-42DC-AD92-31584117ACC8}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>P04.Model</RootNamespace>
-    <AssemblyName>P04.Model</AssemblyName>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>P04.AbstractFactory</RootNamespace>
+    <AssemblyName>P04.AbstractFactory</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,16 +23,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,28 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enum\FoodTypeEnum.cs" />
-    <Compile Include="Food\AbstractFood.cs" />
-    <Compile Include="Food\BaseFood.cs" />
-    <Compile Include="Food\BraisedPolkBall.cs" />
-    <Compile Include="Food\CrabPackage.cs" />
-    <Compile Include="Food\SquirrelFish.cs" />
-    <Compile Include="Food\ThreeNestedDuck.cs" />
-    <Compile Include="Food\VegetarianEel.cs" />
+    <Compile Include="HuaiYangFoodAbstractFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Soup\AbstractSoup.cs" />
-    <Compile Include="Soup\BaseSoup.cs" />
-    <Compile Include="Soup\HotSourSoup.cs" />
-    <Compile Include="Soup\PorkRibsSoup.cs" />
-    <Compile Include="Soup\TomatoEggSoup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\P04.Helper\P04.Helper.csproj">
-      <Project>{cd6338b4-b0d4-4c06-bc1e-683ca2b4c3da}</Project>
-      <Name>P04.Helper</Name>
+    <ProjectReference Include="..\P04.Interface\P04.Interface.csproj">
+      <Project>{48cacdbe-c2ff-451b-9a5b-4d230a4aff60}</Project>
+      <Name>P04.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P04.Model\P04.Model.csproj">
+      <Project>{697FFDEB-FD42-4CCE-84DD-FDC3EF231620}</Project>
+      <Name>P04.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
