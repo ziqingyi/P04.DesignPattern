@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,6 +55,9 @@
     <Compile Include="Food\SquirrelFish.cs" />
     <Compile Include="Food\ThreeNestedDuck.cs" />
     <Compile Include="Food\VegetarianEel.cs" />
+    <Compile Include="Order\FoodMenu.cs" />
+    <Compile Include="Order\FoodModel.cs" />
+    <Compile Include="Order\FoodModelList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Soup\AbstractSoup.cs" />
     <Compile Include="Soup\BaseSoup.cs" />
