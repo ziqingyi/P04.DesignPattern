@@ -65,6 +65,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\P04.AbstractFactory\P04.AbstractFactory.csproj">
+      <Project>{925191AA-28B3-42DC-AD92-31584117ACC8}</Project>
+      <Name>P04.AbstractFactory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\P04.FactoryMethod\P04.FactoryMethod.csproj">
       <Project>{88B923B7-ABCD-4649-B928-81307042AD6E}</Project>
       <Name>P04.FactoryMethod</Name>
@@ -72,6 +76,10 @@
     <ProjectReference Include="..\P04.Helper\P04.Helper.csproj">
       <Project>{cd6338b4-b0d4-4c06-bc1e-683ca2b4c3da}</Project>
       <Name>P04.Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\P04.Interface\P04.Interface.csproj">
+      <Project>{48CACDBE-C2FF-451B-9A5B-4D230A4AFF60}</Project>
+      <Name>P04.Interface</Name>
     </ProjectReference>
     <ProjectReference Include="..\P04.Model\P04.Model.csproj">
       <Project>{697ffdeb-fd42-4cce-84dd-fdc3ef231620}</Project>

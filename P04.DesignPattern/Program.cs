@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using P04.AbstractFactory;
 using P04.FactoryMethod;
+using P04.Interface;
 using P04.Model;
 using P04.Model.Enum;
 using P04.Model.Food;
+using P04.Model.Soup;
 using P04.SimpleFactory;
 
 namespace P04.DesignPattern
@@ -81,18 +84,33 @@ namespace P04.DesignPattern
             }
             {
                 #region Abstract Factory 
-                Console.WriteLine("**********************3 Abstract Factory*************************************");
+                Console.WriteLine("**********************4 Abstract Factory*************************************");
+                IHuaiYangFoodAbstractFactory factory = new HuaiYangFoodAbstractFactory();
+                Console.WriteLine("1 first dish");
+                AbstractFood food = factory.CreateBraisedPolkBall();
+                food.ShowBasicInfo();
+                food.ShowCookMethod();
+                food.Taste();
 
-
-
-
-
+                Console.WriteLine("2 a soup");
+                AbstractSoup soup = factory.CreateTomatoEggSoup();
+                soup.ShowBasicInfo();
+                soup.Taste();
 
                 Console.WriteLine("**********************End of Abstract Factory*************************************");
 
                 #endregion
             }
+            {
+                Console.WriteLine("**********************5 Console Menu*************************************");
 
+
+
+
+
+
+                Console.WriteLine("**********************End of Console Menu*************************************");
+            }
 
 
 
