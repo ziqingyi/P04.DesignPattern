@@ -9,6 +9,7 @@ using P04.Interface;
 using P04.Model;
 using P04.Model.Enum;
 using P04.Model.Food;
+using P04.Model.Order;
 using P04.Model.Soup;
 using P04.SimpleFactory;
 
@@ -103,7 +104,22 @@ namespace P04.DesignPattern
             }
             {
                 Console.WriteLine("**********************5 Console Menu*************************************");
+                Console.WriteLine("*****************************************************");
+                FoodMenu menu = FoodMenu.CreateInstance();
+                if (menu.FoodList != null && menu.FoodList.Count > 0)
+                {
+                    foreach (FoodModel model in menu.FoodList)
+                    {
+                        Console.WriteLine(string.Format("ID: {0}{1}  Price: {2} Score: {3} ",
+                           model.FoodId,
+                           model.FoodName,
+                           string.Format("{0:C}",model.Price),
+                           model.FoodScore
+                           )  );
+                        Console.WriteLine("*****************************************************");
+                    }
 
+                }
 
 
 

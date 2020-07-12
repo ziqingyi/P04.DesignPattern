@@ -38,7 +38,7 @@ namespace P04.Model.Order
 
                        xmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, xmlPath);
 
-                       if(File.Exists(xmlPath))
+                       if(!File.Exists(xmlPath))
                            throw new Exception(string.Format("config file: {0} does not exist", xmlPath));
 
                        FoodModelList _foodModelList = XmlHelper.FileToObject<FoodModelList>(xmlPath);
