@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FoodModelList>
+  <FoodList>
+    <FoodModel>
+      <FoodId>1</FoodId>
+      <FoodName>Braised Pork Ball</FoodName>
+      <FoodDescription>
+        Ingredients: port 800g, egg,  water chestnut
+      </FoodDescription>
+      <Price>68</Price>
+      <FoodScore>1</FoodScore>
+      <SimpleFactory>P04.Model.Food.BraisedPolkBall,P04.Model</SimpleFactory>
+    </FoodModel>
+
+    <FoodModel>
+      <FoodId>2</FoodId>
+      <FoodName>Crab Package</FoodName>
+      <FoodDescription>
+        Crab, Salt, Sugar, Flour
+      </FoodDescription>
+      <Price>48</Price>
+      <FoodScore>3</FoodScore>
+      <SimpleFactory>P04.Model.Food.CrabPackage,P04.Model</SimpleFactory>
+    </FoodModel>
+
+    <FoodModel>
+      <FoodId>3</FoodId>
+      <FoodName>Squirrel Fish</FoodName>
+      <FoodDescription>
+        Fish, Oil, Vegetables
+      </FoodDescription>
+      <Price>58</Price>
+      <FoodScore>5</FoodScore>
+      <SimpleFactory>P04.Model.Food.SquirrelFish,P04.Model</SimpleFactory>
+    </FoodModel>
+
+    <FoodModel>
+      <FoodId>4</FoodId>
+      <FoodName>Vegetarian Eel</FoodName>
+      <FoodDescription>
+          Eel, Oil, Cucumber,Sugar
+      </FoodDescription>
+      <Price>108</Price>
+      <FoodScore>5</FoodScore>
+      <SimpleFactory>P04.Model.Food.VegetarianEel,P04.Model</SimpleFactory>
+    </FoodModel>
+
+    <FoodModel>
+      <FoodId>5</FoodId>
+      <FoodName>Three Nested Duck</FoodName>
+      <FoodDescription>
+          Ducks, Flour, Oil, Potatoes
+      </FoodDescription>
+      <Price>88</Price>
+      <FoodScore>5</FoodScore>
+      <SimpleFactory>P04.Model.Food.ThreeNestedDuck,P04.Model</SimpleFactory>
+    </FoodModel>
+
+  </FoodList>
+</FoodModelList>
