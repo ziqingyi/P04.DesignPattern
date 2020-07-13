@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using P04.AbstractFactory;
 using P04.FactoryMethod;
+using P04.Helper;
 using P04.Interface;
 using P04.Model;
 using P04.Model.Enum;
@@ -121,7 +123,35 @@ namespace P04.DesignPattern
 
                 }
 
+                Console.WriteLine("please type in food id and press enter to continue...");
+                while (true)
+                {
+                    if (!int.TryParse(Console.ReadLine(), out int input))
+                    {
+                        LogHelper.WriteInfoLog("your input is not int, please try again", ConsoleColor.Red);
+                    }
+                    else
+                    {
+                        var selectedFood = menu.FoodList.FirstOrDefault(c => c.FoodId == input);
+                        if (selectedFood == null)
+                        {
+                            LogHelper.WriteInfoLog("Sorry, we don't have that!",ConsoleColor.Red);
+                        }
+                        else
+                        {
+                            
 
+
+                        }
+
+
+
+                    }
+
+
+
+
+                }
 
 
 
