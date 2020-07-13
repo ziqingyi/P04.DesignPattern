@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using P04.AbstractFactory;
@@ -139,21 +140,21 @@ namespace P04.DesignPattern
                         }
                         else
                         {
-                            
+                            string msg = string.Format("You select dish: {0}, price: {1}, Score: {2}, price: {3}",
+                                selectedFood.FoodId,
+                                selectedFood.FoodName,
+                                selectedFood.FoodScore,
+                                string.Format("{0:C}",selectedFood.Price )
 
-
+                            );
+                            LogHelper.WriteInfoLog(msg, ConsoleColor.DarkGreen);
+                            AbstractFood absFood = FoodSimpleFactory.CreateInstanceByReflectionInfo(selectedFood.SimpleFactory);
+                            absFood.ShowBasicInfo();
+                            absFood.ShowCookMethod();
+                            break;
                         }
-
-
-
                     }
-
-
-
-
                 }
-
-
 
                 Console.WriteLine("**********************End of Console Menu*************************************");
             }
