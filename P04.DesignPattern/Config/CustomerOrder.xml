@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<OrderModel>
+
+  <!-- 0 is the people name, 1 is course name, 2 is score  -->
+  <ScoreMessage>Expert: {0} give score {2} to course{1}</ScoreMessage>
+
+  <FoodScoreMessage>
+    <string>{0} star, bad</string>
+    <string>{0} star, normal</string>
+    <string>{0} star, just ok</string>
+    <string>{0} star, nice</string>
+    <string>{0} star, yummy</string>
+  </FoodScoreMessage>
+  
+  <CustomerList>
+    <string>Expert A</string>
+    <string>Expert B</string>
+    <string>Expert C</string>
+    <string>Expert D</string>
+  </CustomerList>
+
+</OrderModel>
+
+
