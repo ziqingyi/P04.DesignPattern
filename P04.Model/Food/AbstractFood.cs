@@ -63,7 +63,7 @@ namespace P04.Model
         public event Action PerfactScoreHandle;
         protected virtual void OnPerfactScoreHandle(int score)
         {
-            if(score == 5 && this.PerfactScoreHandle(!=null))
+            if(score == 5 && this.PerfactScoreHandle != null)
             {
                 this.PerfactScoreHandle.Invoke();
             }
