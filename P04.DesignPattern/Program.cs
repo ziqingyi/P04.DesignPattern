@@ -168,16 +168,54 @@ namespace P04.DesignPattern
             }
             Console.WriteLine();
 
+            FoodMenu menu = FoodMenu.CreateInstance();
+
+            OrderInfoList orderInfoList = OrderInfoList.CreateInstance();
+            OrderModel order = orderInfoList._orderModel;
+            string msg1 = string.Format("{0} come to order. ",string.Join(", ",order.CustomerList));
+            LogHelper.WriteInfoLog(msg1, ConsoleColor.Green);
+
+
+            List<Task> taskList = new List<Task>();
+            Dictionary<string, Dictionary<AbstractFood, int>> dictionaryAll =
+                new Dictionary<string, Dictionary<AbstractFood, int>>();
+
+            List<Dictionary<AbstractFood,int>> dicList = new List<Dictionary<AbstractFood, int>>();
+            int k = 0;
+            foreach (string customer in order.CustomerList)
+            {
+                Dictionary<AbstractFood, int> dictionary = dicList[k++];
+
+
+                    List<FoodModel> orderList = menu.GetFoodListByRandom();
+                    LogHelper.WriteInfoLog(string.Format("Customer: {0} order these: {1}", customer,string.Join(",", orderList.Select(c=>c.FoodName))));
+
+                    foreach (FoodModel food in orderList)
+                    {
+                        AbstractFood foodChosen = FoodSimpleFactory.CreateInstanceByReflectionInfo(food.SimpleFactory);
+                        foodChosen.BaseFood.CustomerName = customer;
+                        foodChosen.Cook();
+                        foodChosen.Taste();
+                        int score = foodChosen.Score();
+                        dictionary.Add(foodChosen,score);
+                    }
+
+                    int maxScore = dictionary.Values.Max();
+                    foreach (var item in dictionary.Where(d=>d.Value == maxScore))
+                    {
+                        Console.WriteLine($"{customer} 's favourite food is {item.Key.BaseFood.FoodName}, score is {item.Value} ");
+                    }
+
+
+
+                
 
 
 
 
 
 
-
-
-
-
+            }
 
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using P04.Model.Order;
 
 namespace P04.Model
 {
@@ -20,6 +21,18 @@ namespace P04.Model
         public string CustomerName { get; set; }
 
         #endregion
+
+        public OrderModel CustomerOrder { get; set; }
+
+        public BaseFood()
+        {
+            CustomerOrder = OrderInfoList.CreateInstance()._orderModel;
+        }
+
+
+
+
+
 
     }
 }
