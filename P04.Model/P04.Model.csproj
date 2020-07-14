@@ -58,6 +58,7 @@
     <Compile Include="Order\FoodMenu.cs" />
     <Compile Include="Order\FoodModel.cs" />
     <Compile Include="Order\FoodModelList.cs" />
+    <Compile Include="Order\OrderInfoList.cs" />
     <Compile Include="Order\OrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Soup\AbstractSoup.cs" />
