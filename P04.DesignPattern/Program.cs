@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
@@ -181,6 +182,11 @@ namespace P04.DesignPattern
                 new Dictionary<string, Dictionary<AbstractFood, int>>();
 
             List<Dictionary<AbstractFood,int>> dicList = new List<Dictionary<AbstractFood, int>>();
+            foreach (var item in order.CustomerList)
+            {
+                dicList.Add(new Dictionary<AbstractFood, int>());
+            }
+
             int k = 0;
             foreach (string customer in order.CustomerList)
             {
@@ -203,17 +209,23 @@ namespace P04.DesignPattern
                     int maxScore = dictionary.Values.Max();
                     foreach (var item in dictionary.Where(d=>d.Value == maxScore))
                     {
-                        Console.WriteLine($"{customer} 's favourite food is {item.Key.BaseFood.FoodName}, score is {item.Value} ");
+                        Console.WriteLine($"{customer} 's favourite food is {item.Key.BaseFood.FoodName}" +
+                                          $", score is {item.Value} ");
+                    }
+                    
+                Console.WriteLine("**************************************************");
+                int maxAll = dicList.Max(d => d.Values.Max());
+                for (int i = 0; i < order.CustomerList.Count; i++)
+                {
+                    var dic = dicList[i];
+                    foreach (var item in dic.Where(d=>d.Value == maxAll))
+                    {
+                        Console.WriteLine($"{order.CustomerList[i]} " +
+                                          $"s favourite food is {item.Key.BaseFood.FoodName}" +
+                                          $", score is {item.Value}");
                     }
 
-
-
-                
-
-
-
-
-
+                }
 
             }
 
