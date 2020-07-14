@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using P04.AbstractFactory;
 using P04.FactoryMethod;
@@ -27,8 +28,9 @@ namespace P04.DesignPattern
 
         static void Main(string[] args)
         {
+            #region normal pattern of program 
             {
-                //#region normal pattern of program 
+                
                 //Console.WriteLine("*********************1 normal pattern of program****************");
                 //AbstractFood braisedPolkBall = new BraisedPolkBall();
                 //braisedPolkBall.ShowBasicInfo();
@@ -45,119 +47,143 @@ namespace P04.DesignPattern
                 //squirrelFish.ShowCookMethod();
                 //squirrelFish.Taste();
                 //Console.WriteLine("********************* End Of normal Pattern*******************************");
-                //#endregion
             }
+            #endregion
+            #region simple factory
             {
-                #region simple factory
-                Console.WriteLine("*********************2 simple factory, create instance with Enum****************");
-                Console.WriteLine("******simple factory: create instance based on Enum, call different new Class() ");
-                AbstractFood braisedPolkBall = FoodSimpleFactory.CreateInstanceByNormal(FoodTypeEnum.BraisedPolkBall);
+                //Console.WriteLine("*********************2 simple factory, create instance with Enum****************");
+                //Console.WriteLine("******simple factory: create instance based on Enum, call different new Class() ");
+                //AbstractFood braisedPolkBall = FoodSimpleFactory.CreateInstanceByNormal(FoodTypeEnum.BraisedPolkBall);
                 
-                braisedPolkBall.ShowBasicInfo();
-                braisedPolkBall.ShowCookMethod();
-                braisedPolkBall.Taste();
+                //braisedPolkBall.ShowBasicInfo();
+                //braisedPolkBall.ShowCookMethod();
+                //braisedPolkBall.Taste();
 
-                Console.WriteLine("************create instance from Config, then to Enum, then use simple factory ");
-                AbstractFood crabPackage = FoodSimpleFactory.CreateInstanceByConfig();
-                crabPackage.ShowBasicInfo();
-                crabPackage.ShowBasicInfo();
-                crabPackage.Taste();
+                //Console.WriteLine("************create instance from Config, then to Enum, then use simple factory ");
+                //AbstractFood crabPackage = FoodSimpleFactory.CreateInstanceByConfig();
+                //crabPackage.ShowBasicInfo();
+                //crabPackage.ShowBasicInfo();
+                //crabPackage.Taste();
 
-                Console.WriteLine("************create instance from Config, then use reflection to create class ");
-                AbstractFood squirrelFish = FoodSimpleFactory.CreateInstanceByReflection();
-                squirrelFish.ShowBasicInfo();
-                squirrelFish.ShowCookMethod();
-                squirrelFish.Taste();
+                //Console.WriteLine("************create instance from Config, then use reflection to create class ");
+                //AbstractFood squirrelFish = FoodSimpleFactory.CreateInstanceByReflection();
+                //squirrelFish.ShowBasicInfo();
+                //squirrelFish.ShowCookMethod();
+                //squirrelFish.Taste();
 
-                Console.WriteLine("********************* End Of simple factory*******************************");
-                #endregion
+                //Console.WriteLine("********************* End Of simple factory*******************************");
             }
+            #endregion
+            #region Factory Method
             {
-                #region Factory Method
-
-                Console.WriteLine("**********************3 Factory Method*************************************");
-                BaseFactory braisedPolkBallFactory = new BraisedPolkBallFactory();
-                AbstractFood braisedPolkBall =  braisedPolkBallFactory.CreateInstance();
-                braisedPolkBall.ShowBasicInfo();
-                braisedPolkBall.ShowCookMethod();
-                braisedPolkBall.Taste();
-
-                Console.WriteLine("**********************End of Factory Method*************************************");
-
-                #endregion
+                //Console.WriteLine("**********************3 Factory Method*************************************");
+                //BaseFactory braisedPolkBallFactory = new BraisedPolkBallFactory();
+                //AbstractFood braisedPolkBall =  braisedPolkBallFactory.CreateInstance();
+                //braisedPolkBall.ShowBasicInfo();
+                //braisedPolkBall.ShowCookMethod();
+                //braisedPolkBall.Taste();
+                //Console.WriteLine("**********************End of Factory Method*************************************");
             }
+            #endregion
+            #region Abstract Factory 
             {
-                #region Abstract Factory 
-                Console.WriteLine("**********************4 Abstract Factory*************************************");
-                IHuaiYangFoodAbstractFactory factory = new HuaiYangFoodAbstractFactory();
-                Console.WriteLine("1 first dish");
-                AbstractFood food = factory.CreateBraisedPolkBall();
-                food.ShowBasicInfo();
-                food.ShowCookMethod();
-                food.Taste();
+                //Console.WriteLine("**********************4 Abstract Factory*************************************");
+                //IHuaiYangFoodAbstractFactory factory = new HuaiYangFoodAbstractFactory();
+                //Console.WriteLine("1 first dish");
+                //AbstractFood food = factory.CreateBraisedPolkBall();
+                //food.ShowBasicInfo();
+                //food.ShowCookMethod();
+                //food.Taste();
 
-                Console.WriteLine("2 a soup");
-                AbstractSoup soup = factory.CreateTomatoEggSoup();
-                soup.ShowBasicInfo();
-                soup.Taste();
+                //Console.WriteLine("2 a soup");
+                //AbstractSoup soup = factory.CreateTomatoEggSoup();
+                //soup.ShowBasicInfo();
+                //soup.Taste();
 
-                Console.WriteLine("**********************End of Abstract Factory*************************************");
-
-                #endregion
+                //Console.WriteLine("**********************End of Abstract Factory*************************************");
             }
+            #endregion
+            #region Console Menu
             {
-                Console.WriteLine("**********************5 Console Menu*************************************");
-                Console.WriteLine("*****************************************************");
-                FoodMenu menu = FoodMenu.CreateInstance();
-                if (menu.FoodList != null && menu.FoodList.Count > 0)
-                {
-                    foreach (FoodModel model in menu.FoodList)
-                    {
-                        Console.WriteLine(string.Format("ID: {0}{1}  Price: {2} Score: {3} ",
-                           model.FoodId,
-                           model.FoodName,
-                           string.Format("{0:C}",model.Price),
-                           model.FoodScore
-                           )  );
-                        Console.WriteLine("*****************************************************");
-                    }
+                //Console.WriteLine("**********************5 Console Menu*************************************");
+                //Console.WriteLine("*****************************************************");
+                //FoodMenu menu = FoodMenu.CreateInstance();
+                //if (menu.FoodList != null && menu.FoodList.Count > 0)
+                //{
+                //    foreach (FoodModel model in menu.FoodList)
+                //    {
+                //        Console.WriteLine(string.Format("ID: {0}{1}  Price: {2} Score: {3} ",
+                //           model.FoodId,
+                //           model.FoodName,
+                //           string.Format("{0:C}",model.Price),
+                //           model.FoodScore
+                //           )  );
+                //        Console.WriteLine("*****************************************************");
+                //    }
 
-                }
+                //}
 
-                Console.WriteLine("please type in food id and press enter to continue...");
-                while (true)
-                {
-                    if (!int.TryParse(Console.ReadLine(), out int input))
-                    {
-                        LogHelper.WriteInfoLog("your input is not int, please try again", ConsoleColor.Red);
-                    }
-                    else
-                    {
-                        var selectedFood = menu.FoodList.FirstOrDefault(c => c.FoodId == input);
-                        if (selectedFood == null)
-                        {
-                            LogHelper.WriteInfoLog("Sorry, we don't have that!",ConsoleColor.Red);
-                        }
-                        else
-                        {
-                            string msg = string.Format("You select dish: {0}, price: {1}, Score: {2}, price: {3}",
-                                selectedFood.FoodId,
-                                selectedFood.FoodName,
-                                selectedFood.FoodScore,
-                                string.Format("{0:C}",selectedFood.Price )
+                //Console.WriteLine("please type in food id and press enter to continue...");
+                //while (true)
+                //{
+                //    if (!int.TryParse(Console.ReadLine(), out int input))
+                //    {
+                //        LogHelper.WriteInfoLog("your input is not int, please try again", ConsoleColor.Red);
+                //    }
+                //    else
+                //    {
+                //        var selectedFood = menu.FoodList.FirstOrDefault(c => c.FoodId == input);
+                //        if (selectedFood == null)
+                //        {
+                //            LogHelper.WriteInfoLog("Sorry, we don't have that!",ConsoleColor.Red);
+                //        }
+                //        else
+                //        {
+                //            string msg = string.Format("You select dish: {0}, price: {1}, Score: {2}, price: {3}",
+                //                selectedFood.FoodId,
+                //                selectedFood.FoodName,
+                //                selectedFood.FoodScore,
+                //                string.Format("{0:C}",selectedFood.Price )
 
-                            );
-                            LogHelper.WriteInfoLog(msg, ConsoleColor.DarkGreen);
-                            AbstractFood absFood = FoodSimpleFactory.CreateInstanceByReflectionInfo(selectedFood.SimpleFactory);
-                            absFood.ShowBasicInfo();
-                            absFood.ShowCookMethod();
-                            break;
-                        }
-                    }
-                }
-
-                Console.WriteLine("**********************End of Console Menu*************************************");
+                //            );
+                //            LogHelper.WriteInfoLog(msg, ConsoleColor.DarkGreen);
+                //            AbstractFood absFood = FoodSimpleFactory.CreateInstanceByReflectionInfo(selectedFood.SimpleFactory);
+                //            absFood.ShowBasicInfo();
+                //            absFood.ShowCookMethod();
+                //            break;
+                //        }
+                //    }
+                //}
+                //Console.WriteLine("**********************End of Console Menu*************************************");
             }
+            #endregion
+
+            #region multi-thread order
+            Console.WriteLine("******************Multi-thead order***************************");
+            char[] tips = "Please see below".ToCharArray();
+            for (int i = 0; i < tips.Length; i++)
+            {
+                Console.Write(tips[i]);
+                Thread.Sleep(100);
+            }
+            Console.WriteLine();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            #endregion
+
 
 
 
