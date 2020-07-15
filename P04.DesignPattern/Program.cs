@@ -209,9 +209,11 @@ namespace P04.DesignPattern
                     int maxScore = dictionary.Values.Max();
                     foreach (var item in dictionary.Where(d=>d.Value == maxScore))
                     {
+                        Console.BackgroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine($"{customer} 's favourite food is {item.Key.BaseFood.FoodName}" +
                                           $", score is {item.Value} ");
-                    }
+                        Console.BackgroundColor = ConsoleColor.White;
+                }
                     
                 Console.WriteLine("**************************************************");
                 int maxAll = dicList.Max(d => d.Values.Max());
