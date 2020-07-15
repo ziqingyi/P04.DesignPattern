@@ -18,7 +18,7 @@ namespace P04.Model.Order
 
         private FoodMenu() { }
 
-        public List<FoodModel> FoodList = new List<FoodModel>();
+        public List<FoodModel> FoodList { get; private set; }
 
         public static FoodMenu CreateInstance()
         {

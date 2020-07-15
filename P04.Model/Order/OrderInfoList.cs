@@ -11,7 +11,7 @@ namespace P04.Model.Order
 {
     public sealed class OrderInfoList
     {
-        public OrderModel _orderModel = null;
+        public OrderModel _orderModel { get; private set; }
 
         private volatile static OrderInfoList _instance = null;
         private static readonly object _lockHelper = new object();
