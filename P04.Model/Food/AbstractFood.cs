@@ -55,7 +55,7 @@ namespace P04.Model
             string ScoreMsg = this.BaseFood.CustomerOrder.FoodScoreMessage[scoreNum - 1];
             string message1 = string.Format(BaseFood.CustomerOrder.ScoreMessage, this.BaseFood.CustomerName,
                 this.BaseFood.FoodName, string.Format(ScoreMsg, scoreNum));
-            LogHelper.WriteInfoLog(message1);
+            LogHelper.WriteInfoLog(message1,this.BaseFood.MessageColor);
 
             return scoreNum;
         }
