@@ -21,10 +21,10 @@ namespace P04.Helper
         public static T XmlDeserialize<T>(string xmlStr, Encoding encoding)
         {
             if (string.IsNullOrEmpty(xmlStr))
-                throw new ArgumentException("xmlStr");
+                throw new ArgumentException("xmlStr???");
             
             if(encoding == null)
-                throw  new ArgumentException();
+                throw  new ArgumentException("encoding????");
 
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
             using (MemoryStream ms = new MemoryStream(encoding.GetBytes(xmlStr)))

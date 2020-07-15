@@ -32,8 +32,12 @@ namespace P04.Model.Order
 
                         if(!File.Exists(xmlPath))
                             throw new Exception(string.Format("config file: {0} not exist", xmlPath));
-                        _instance._orderModel = XmlHelper.FileToObject<OrderModel>(xmlPath);
 
+                        _instance = new OrderInfoList()
+                        {
+                            _orderModel = XmlHelper.FileToObject<OrderModel>(xmlPath)
+                        };
+                        
                         if (_instance == null)
                         {
                             throw new Exception("Does not read config files successfully");
