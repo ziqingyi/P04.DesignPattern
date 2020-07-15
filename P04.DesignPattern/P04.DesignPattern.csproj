@@ -100,7 +100,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\CustomerOrder.xml" />
+    <Content Include="Config\CustomerOrder.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Config\FoodModel.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
