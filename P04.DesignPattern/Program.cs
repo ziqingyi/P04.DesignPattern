@@ -193,45 +193,40 @@ namespace P04.DesignPattern
                 Dictionary<AbstractFood, int> oneCustomerScoreDic = allCustomerScoreDicList[k++];
 
 
+                taskList.Add(
+                    Task.Run(
+                    () =>
+                    {
+                        List<FoodModel> orderList = menu.GetFoodListByRandom();
+                        string orderMsg = string.Format("Customer: {0} order these: {1}", customer,
+                            string.Join(",", orderList.Select(c => c.FoodName)));
+                        LogHelper.WriteInfoLog(orderMsg, ConsoleColor.DarkRed);
 
+                        foreach (FoodModel food in orderList)
+                        {
+                            AbstractFood foodChosen = FoodSimpleFactory.CreateInstanceByReflectionInfo(food.SimpleFactory);
+                            foodChosen.BaseFood.CustomerName = customer;
+                            foodChosen.Cook();
+                            foodChosen.Taste();
+                            int score = foodChosen.Score();
+                            oneCustomerScoreDic.Add(foodChosen, score);
+                        }
 
+                        int maxScore = oneCustomerScoreDic.Values.Max();
+                        foreach (var item in oneCustomerScoreDic.Where(d => d.Value == maxScore))
+                        {
+                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine($"@@@@@@{customer} 's favourite food is {item.Key.BaseFood.FoodName}" +
+                                              $", score is {item.Value} @@@@@@");
+                            Console.BackgroundColor = ConsoleColor.Black;
+                        }
 
-                List<FoodModel> orderList = menu.GetFoodListByRandom();
-                string orderMsg = string.Format("Customer: {0} order these: {1}", customer,
-                    string.Join(",", orderList.Select(c => c.FoodName)));
-                LogHelper.WriteInfoLog(orderMsg, ConsoleColor.DarkRed);
-
-                foreach (FoodModel food in orderList)
-                {
-                    AbstractFood foodChosen = FoodSimpleFactory.CreateInstanceByReflectionInfo(food.SimpleFactory);
-                    foodChosen.BaseFood.CustomerName = customer;
-                    foodChosen.Cook();
-                    foodChosen.Taste();
-                    int score = foodChosen.Score();
-                    oneCustomerScoreDic.Add(foodChosen, score);
-                }
-
-
-
-                Console.WriteLine("************Total:**************************");
-                int maxScore = oneCustomerScoreDic.Values.Max();
-                foreach (var item in oneCustomerScoreDic.Where(d => d.Value == maxScore))
-                {
-                    Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine($"{customer} 's favourite food is {item.Key.BaseFood.FoodName}" +
-                                      $", score is {item.Value} ");
-                    Console.BackgroundColor = ConsoleColor.Black;
-                }
-
-
-
-
-
-
-
+                    }
+                    )
+                );
             }
-
-            Console.WriteLine("**************************************************");
+            Task.WaitAll(taskList.ToArray());
+            Console.WriteLine("*****************All Customers' favourite*********************************");
             int maxAll = allCustomerScoreDicList.Max(d => d.Values.Max());
             for (int i = 0; i < order.CustomerList.Count; i++)
             {
@@ -244,7 +239,6 @@ namespace P04.DesignPattern
                 }
 
             }
-
             #endregion
 
             Console.ReadKey();
