@@ -160,11 +160,98 @@ namespace P04.DesignPattern
             #endregion
 
 
+            #region Single-thread order
+            {
+                Console.WriteLine("******************Single-thead order***************************");
+                char[] tips = "Please see below".ToCharArray();
+                for (int i = 0; i < tips.Length; i++)
+                {
+                    Console.Write(tips[i]);
+                    Thread.Sleep(100);
+                }
+
+                Console.WriteLine();
+
+                FoodMenu menu = FoodMenu.CreateInstance();
+
+                OrderInfoList orderInfoList = OrderInfoList.CreateInstance();
+                OrderModel order = orderInfoList._orderModel;
+                string msg1 = string.Format("{0} come to order. ", string.Join(", ", order.CustomerList));
+                LogHelper.WriteInfoLog(msg1, ConsoleColor.DarkRed);
+
+
+                //List<Task> taskList = new List<Task>();
+                Dictionary<string, Dictionary<AbstractFood, int>> dictionaryAll =
+                    new Dictionary<string, Dictionary<AbstractFood, int>>();
+
+                List<Dictionary<AbstractFood, int>> allCustomerScoreDicList = new List<Dictionary<AbstractFood, int>>();
+                foreach (var item in order.CustomerList)
+                {
+                    allCustomerScoreDicList.Add(new Dictionary<AbstractFood, int>());
+                }
+
+                int k = 0;
+                foreach (string customer in order.CustomerList)
+                {
+                    Dictionary<AbstractFood, int> oneCustomerScoreDic = allCustomerScoreDicList[k++];
+
+
+                    //taskList.Add(
+                    //    Task.Run(
+                    //        () =>
+                    {
+                        List<FoodModel> orderList = menu.GetFoodListByRandom();
+                        string orderMsg = string.Format("Customer: {0} order these: {1}", customer,
+                            string.Join(",", orderList.Select(c => c.FoodName)));
+                        LogHelper.WriteInfoLog(orderMsg, ConsoleColor.DarkRed);
+
+                        foreach (FoodModel food in orderList)
+                        {
+                            AbstractFood foodChosen =
+                                FoodSimpleFactory.CreateInstanceByReflectionInfo(food.SimpleFactory);
+                            foodChosen.BaseFood.CustomerName = customer;
+                            foodChosen.Cook();
+                            foodChosen.Taste();
+                            int score = foodChosen.Score();
+                            oneCustomerScoreDic.Add(foodChosen, score);
+                        }
+
+                        int maxScore = oneCustomerScoreDic.Values.Max();
+                        foreach (var item in oneCustomerScoreDic.Where(d => d.Value == maxScore))
+                        {
+                            Console.BackgroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine(
+                                $"@@@@@@{customer} 's favourite food is {item.Key.BaseFood.FoodName}" +
+                                $", score is {item.Value} @@@@@@");
+                            Console.BackgroundColor = ConsoleColor.Black;
+                        }
+
+                 
+
+                    }
+                  //     )
+                 //         );
+                }
+
+                //Task.WaitAll(taskList.ToArray());
+                Console.WriteLine("*****************All Customers' favourite*********************************");
+                int maxAll = allCustomerScoreDicList.Max(d => d.Values.Max());
+                for (int i = 0; i < order.CustomerList.Count; i++)
+                {
+                    var dic = allCustomerScoreDicList[i];
+                    foreach (var item in dic.Where(d => d.Value == maxAll))
+                    {
+                        Console.WriteLine($"{order.CustomerList[i]} " +
+                                          $"s favourite food is {item.Key.BaseFood.FoodName}" +
+                                          $", score is {item.Value}");
+                    }
+                }
+            }
+            #endregion
 
 
 
             #region multi-thread order
-
             {
                 Console.WriteLine("******************Multi-thead order***************************");
                 char[] tips = "Please see below".ToCharArray();
@@ -248,7 +335,7 @@ namespace P04.DesignPattern
                     }
                 }
             }
-        #endregion
+            #endregion
 
         Console.ReadKey();
         }
