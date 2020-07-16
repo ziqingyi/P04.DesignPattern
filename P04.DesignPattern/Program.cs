@@ -193,6 +193,9 @@ namespace P04.DesignPattern
                 Dictionary<AbstractFood, int> oneCustomerScoreDic = allCustomerScoreDicList[k++];
 
 
+
+
+
                 List<FoodModel> orderList = menu.GetFoodListByRandom();
                 string orderMsg = string.Format("Customer: {0} order these: {1}", customer,
                     string.Join(",", orderList.Select(c => c.FoodName)));
@@ -208,6 +211,9 @@ namespace P04.DesignPattern
                     oneCustomerScoreDic.Add(foodChosen, score);
                 }
 
+
+
+                Console.WriteLine("************Total:**************************");
                 int maxScore = oneCustomerScoreDic.Values.Max();
                 foreach (var item in oneCustomerScoreDic.Where(d => d.Value == maxScore))
                 {
@@ -216,6 +222,13 @@ namespace P04.DesignPattern
                                       $", score is {item.Value} ");
                     Console.BackgroundColor = ConsoleColor.Black;
                 }
+
+
+
+
+
+
+
             }
 
             Console.WriteLine("**************************************************");
