@@ -276,6 +276,9 @@ namespace P04.DesignPattern
                     new Dictionary<string, Dictionary<AbstractFood, int>>();
 
                 List<Dictionary<AbstractFood, int>> allCustomerScoreDicList = new List<Dictionary<AbstractFood, int>>();
+                //must have a container containing multiple containers for each customer.
+                //if use multi-thread, sharing one container will cause issue, lock will affect efficiency.
+                //so must use separate container for each thread.
                 foreach (var item in order.CustomerList)
                 {
                     allCustomerScoreDicList.Add(new Dictionary<AbstractFood, int>());
@@ -321,7 +324,7 @@ namespace P04.DesignPattern
                     );
                 }
 
-                Task.WaitAll(taskList.ToArray());
+                Task.WaitAll(taskList.ToArray()); // wait for every task finish eating. 
                 Console.WriteLine("*****************All Customers' favourite*********************************");
                 int maxAll = allCustomerScoreDicList.Max(d => d.Values.Max());
                 for (int i = 0; i < order.CustomerList.Count; i++)
