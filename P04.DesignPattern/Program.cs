@@ -355,11 +355,18 @@ namespace P04.DesignPattern
             //do before base.Cook();
             food = new FoodDecoratorCut(food);
             food = new FoodDecoratorClean(food);
-            food = new FoodDecoratorBuy(food);
+
 
             //do after base.Cook();
             food = new FoodDecoratorPlace(food);
             food = new FoodDecoratorShow(food);
+
+
+
+
+            //do before base.Cook();
+            //even put at the end, execute before base.Cook()
+            food = new FoodDecoratorBuy(food);
 
             food.Cook();
 
