@@ -11,14 +11,14 @@ namespace P04.Decorator
     {
         private AbstractFood _food = null;
 
-        public BaseFoodDecorator(AbstractFood food)
+        public BaseFoodDecorator(AbstractFood food):base()
         {
             this._food = food;
         }
 
         public override void Cook()
         {
-            Console.WriteLine("base");
+            //Console.WriteLine("base");//should not add more logic
             this._food.Cook();
         }
 

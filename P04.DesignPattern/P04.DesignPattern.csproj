@@ -78,6 +78,10 @@
       <Project>{925191AA-28B3-42DC-AD92-31584117ACC8}</Project>
       <Name>P04.AbstractFactory</Name>
     </ProjectReference>
+    <ProjectReference Include="..\P04.Decorator\P04.Decorator.csproj">
+      <Project>{7BCC7316-E23C-4A05-9644-316A61373334}</Project>
+      <Name>P04.Decorator</Name>
+    </ProjectReference>
     <ProjectReference Include="..\P04.FactoryMethod\P04.FactoryMethod.csproj">
       <Project>{88B923B7-ABCD-4649-B928-81307042AD6E}</Project>
       <Name>P04.FactoryMethod</Name>
