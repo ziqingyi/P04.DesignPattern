@@ -351,13 +351,15 @@ namespace P04.DesignPattern
 
             Console.WriteLine("**********************Decorator************************************");
             AbstractFood food = FoodSimpleFactory.CreateInstanceByNormal(FoodTypeEnum.BraisedPolkBall);
-            
-            food = new FoodDecoratorPlace(food);
-            food = new FoodDecoratorShow(food);
 
+            //do before base.Cook();
             food = new FoodDecoratorCut(food);
             food = new FoodDecoratorClean(food);
             food = new FoodDecoratorBuy(food);
+
+            //do after base.Cook();
+            food = new FoodDecoratorPlace(food);
+            food = new FoodDecoratorShow(food);
 
             food.Cook();
 

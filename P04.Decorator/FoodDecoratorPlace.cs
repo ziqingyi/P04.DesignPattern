@@ -16,8 +16,8 @@ namespace P04.Decorator
 
         public override void Cook()
         {
-            Console.WriteLine("Place");
             base.Cook();
+            Console.WriteLine("Place");
         }
     }
 }
