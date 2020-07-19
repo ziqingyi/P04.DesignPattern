@@ -348,31 +348,51 @@ namespace P04.DesignPattern
             #endregion
 
             #region decorator
+            /*
+             {
+                    Console.WriteLine("**********************Decorator************************************");
+                    AbstractFood food = FoodSimpleFactory.CreateInstanceByNormal(FoodTypeEnum.BraisedPolkBall);
 
-            Console.WriteLine("**********************Decorator************************************");
-            AbstractFood food = FoodSimpleFactory.CreateInstanceByNormal(FoodTypeEnum.BraisedPolkBall);
-
-            //do before base.Cook();
-            food = new FoodDecoratorCut(food);
-            food = new FoodDecoratorClean(food);
-
-
-            //do after base.Cook();
-            food = new FoodDecoratorPlace(food);
-            food = new FoodDecoratorShow(food);
+                    //do before base.Cook();
+                    food = new FoodDecoratorCut(food);
+                    food = new FoodDecoratorClean(food);
 
 
+                    //do after base.Cook();
+                    food = new FoodDecoratorPlace(food);
+                    food = new FoodDecoratorShow(food);
 
 
-            //do before base.Cook();
-            //even put at the end, execute before base.Cook()
-            food = new FoodDecoratorBuy(food);
 
-            food.Cook();
 
+                    //do before base.Cook();
+                    //even put at the end, execute before base.Cook()
+                    food = new FoodDecoratorBuy(food);
+
+                    food.Cook();
+            }
+            */
             #endregion
 
+            #region observer
 
+            {
+                AbstractFood food = FoodSimpleFactory.CreateInstanceByNormal(FoodTypeEnum.BraisedPolkBall);
+                food.PerfactScoreHandle += () =>
+                {
+                    Console.WriteLine("Customer buy....");
+                };
+
+                food.PerfactScoreHandle += () => { Console.WriteLine("Journalist1 report....."); };
+
+                food.PerfactScoreHandle += () => { Console.WriteLine("Journalist2 report......"); };
+
+                food.Score(5);
+
+            }
+
+
+            #endregion
 
 
 
