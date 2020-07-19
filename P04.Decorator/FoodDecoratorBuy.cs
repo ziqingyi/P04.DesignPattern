@@ -18,6 +18,7 @@ namespace P04.Decorator
         {
             Console.WriteLine("buy");
             base.Cook();
+            
         }
 
     }
