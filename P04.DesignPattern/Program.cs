@@ -348,7 +348,7 @@ namespace P04.DesignPattern
             #endregion
 
             #region decorator
-            /*
+            
              {
                     Console.WriteLine("**********************Decorator************************************");
                     AbstractFood food = FoodSimpleFactory.CreateInstanceByNormal(FoodTypeEnum.BraisedPolkBall);
@@ -371,11 +371,11 @@ namespace P04.DesignPattern
 
                     food.Cook();
             }
-            */
+            
             #endregion
 
             #region observer
-
+            /*
             {
                 AbstractFood food = FoodSimpleFactory.CreateInstanceByNormal(FoodTypeEnum.BraisedPolkBall);
                 food.PerfactScoreHandle += () =>
@@ -391,7 +391,7 @@ namespace P04.DesignPattern
 
             }
 
-
+            */
             #endregion
 
 
