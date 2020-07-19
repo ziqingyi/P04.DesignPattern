@@ -48,7 +48,7 @@ namespace P04.Model
 
 
 
-
+        public event Action PerfactScoreHandle;
         public virtual int Score(int i = 0)
         {
             int scoreNum = i == 0 ? new Random(DateTime.Now.Millisecond).Next(1, 6) : i;
@@ -57,10 +57,12 @@ namespace P04.Model
                 this.BaseFood.FoodName, string.Format(ScoreMsg, scoreNum));
             LogHelper.WriteInfoLog(message1,this.BaseFood.MessageColor);
 
+            this.OnPerfactScoreHandle(scoreNum);
+
             return scoreNum;
         }
 
-        public event Action PerfactScoreHandle;
+        
         protected virtual void OnPerfactScoreHandle(int score)
         {
             if(score == 5 && this.PerfactScoreHandle != null)
